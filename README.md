@@ -13,13 +13,15 @@ var words = lipsum.getWords(5, 10);
 
 // Sentence with 8 to 21 words
 var sentence = lipsum.getSentence(8, 21);
-// Example: Eget fermentum fusce diam ut ut sit libero imperdiet
+// Example:
+//  Eget fermentum fusce diam ut ut sit libero imperdiet
 // pharetra EROS consectetur EROS commodo ipsum nunc dui nullam
 // elementum mi proin libero TorTor eget tortor EROS.
 
 // Paragraph with 2 to 5 sentences
 var paragraph = lipsum.getParagraph(2, 5);
-// Example: Proin imperdiet erat nunc elit adipiscing ut ut lacinia  
+// Example:
+// Proin imperdiet erat nunc elit adipiscing ut ut lacinia  
 // sit blandit pellentesque mattis mattis diam imperdiet metus TorTor  
 // pharetra convallis adipiscing blandit loremtortor. Blandit dolor  
 // consectetur proin erat mattis tortor imperdiet amet Consectetur  
@@ -43,5 +45,6 @@ $ npm install simple-lipsum
 ## Features
 
   * Get random words
-  * Get random sentence with punctuation
-  * Paragraphs with random sentence amounts
+  * Get random sentences with punctuation
+  * Paragraphs with random sentences
+  * Specify the min and max amount of words or sentences
