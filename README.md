@@ -1,3 +1,5 @@
+[![npm package](https://nodei.co/npm/simple-lipsum.png?downloads=true&downloadRank=true&stars=true)](https://nodei.co/npm/simple-lipsum/)
+
 Simple and easy dummy data generation for [node](http://nodejs.org).
 
 ```js
