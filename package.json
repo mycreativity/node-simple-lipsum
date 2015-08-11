@@ -1,0 +1,30 @@
+{
+  "name": "simple-lipsum",
+  "version": "0.0.0",
+  "description": "Simple and easy dummy data generation for node",
+  "main": "simple-lipsum.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/mycreativity/node-simple-lipsum.git"
+  },
+  "keywords": [
+    "dummy",
+    "data",
+    "lipsum",
+    "simple",
+    "easy",
+    "words",
+    "word",
+    "sentence",
+    "paragraph"
+  ],
+  "author": "Jasper Steenweg <jasper@mycreativity.nl> (http://www.mycreativity.nl/)",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mycreativity/node-simple-lipsum/issues"
+  },
+  "homepage": "https://github.com/mycreativity/node-simple-lipsum"
+}
