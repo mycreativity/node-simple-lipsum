@@ -1,5 +1,7 @@
 [![npm package](https://nodei.co/npm/simple-lipsum.png?downloads=true&downloadRank=true&stars=true)](https://nodei.co/npm/simple-lipsum/)
 
+[![Build Status](https://img.shields.io/travis/mycreativity/node-simple-lipsum/master.svg?style=flat-square)](https://travis-ci.org/mycreativity/node-simple-lipsum)
+
 Simple and easy dummy data generation for [node](http://nodejs.org).
 
 ## Quickstart
