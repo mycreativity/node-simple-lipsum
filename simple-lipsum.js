@@ -4,12 +4,17 @@ var _words      = 'lorem ipsum dolor sit amet Consectetur adipiscing elit proin 
 var _chars      = 'abcdefghijklmnopqrstuvwxyz';
 var _numbers    = '1234567890';
 
-exports.getWords = function (minWords, maxWords) {
-    minWords = typeof a !== 'undefined' ? minWords : 8;
-    maxWords = typeof b !== 'undefined' ? maxWords : 21;
-
-    var amount = Math.floor(Math.random() * maxWords) + minWords;
+exports.getWords = function (min, max) {
+    var amount = 0;
     var words = '';
+
+    if (typeof min !== 'undefined' && typeof max == 'undefined') {
+      amount = min;
+    } else {
+      min = typeof min !== 'undefined' ? min : 8;
+      max = typeof max !== 'undefined' ? max : 21;
+      amount = _randomBetween(min, max);
+    }
 
     for(var i = 0; i < amount; i++)
     {
@@ -21,40 +26,125 @@ exports.getWords = function (minWords, maxWords) {
     return words;
 };
 
-exports.getSentence = function (minWords, maxWords) {
-    minWords = typeof a !== 'undefined' ? minWords : 8;
-    maxWords = typeof b !== 'undefined' ? maxWords : 21;
+exports.getSentence = function (min, max) {
+  var sentence;
 
-    var sentence = _this.getWords(minWords, maxWords);
-    sentence = _capitalize(sentence);
-    sentence = _punctuationize(sentence);
+  if (typeof min !== 'undefined' && typeof max == 'undefined') {
+    sentence = _this.getWords(min);
+  } else {
+    min = typeof min !== 'undefined' ? min : 8;
+    max = typeof max !== 'undefined' ? max : 21;
+    sentence = _this.getWords(min, max);
+  }
 
-    return sentence;
+  sentence = _capitalize(sentence);
+  sentence = _punctuationize(sentence);
+
+  return sentence;
 };
 
-exports.getParagraph = function (minSentences, maxSentences) {
-    minSentences = typeof a !== 'undefined' ? minSentences : 2;
-    maxSentences = typeof b !== 'undefined' ? maxSentences : 6;
+exports.getParagraph = function (min, max) {
+  var amount = 0;
+  var paragraph = '';
 
-    var amount = Math.floor(Math.random() * maxSentences) + minSentences;
-    var paragraph = '';
+  if (typeof min !== 'undefined' && typeof max == 'undefined') {
+    amouont = min;
+  } else {
+    min = typeof min !== 'undefined' ? min : 2;
+    max = typeof max !== 'undefined' ? max : 6;
+    amount = _randomBetween(min, max);
+  }
 
-    for(var i = 0; i < amount; i++)
-    {
-      var sentence = _this.getSentence(8, 21);
+  for(var i = 0; i < amount; i++)
+  {
+    var sentence = _this.getSentence(8, 21);
 
-      if (i > 0) paragraph += ' ' + sentence;
-      else paragraph += sentence;
-    }
+    if (i > 0) paragraph += ' ' + sentence;
+    else paragraph += sentence;
+  }
 
-    return paragraph;
+  return paragraph;
 };
+
+exports.getNumber = function(min, max, fixedNumber) {
+  var amount = 0;
+
+  fixedNumber = typeof fixedNumber !== 'undefined' ? fixedNumber : 0;
+  var power = Math.pow(10, fixedNumber);
+
+  if (typeof min !== 'undefined' && typeof max == 'undefined') {
+    amount = min;
+  } else {
+    min = typeof min !== 'undefined' ? min : 2;
+    max = typeof max !== 'undefined' ? max : 6;
+
+    amount = _randomBetween((min * power), (max * power));
+  }
+  
+  return (amount / power).toFixed(fixedNumber);
+};
+
+exports.currency = {
+  DOLLAR: 0,
+  EURO: 1
+};
+
+exports.getMoney = function(currency, min, max) {
+  var amount = 0;
+  if (typeof min !== 'undefined' && typeof max == 'undefined') {
+    amount = min;
+  } else {
+    min = typeof min !== 'undefined' ? min : 1.00;
+    max = typeof max !== 'undefined' ? max : 10.00;
+    amount = _randomBetween((min * 100), (max * 100)) / 100;
+  }
+
+  if (currency == 0) {
+    return amount.formatMoney(2, '.', ',');
+  } else if (currency == 1) {
+    return amount.formatMoney(2, ',', '.');
+  }
+
+  return 'unknown currency';
+};
+
+function _randomBetween(min, max) {
+  return Math.floor(Math.random()*(max-min+1)+min);
+}
 
 function _punctuationize (string) {
-  var amount = Math.floor(Math.random() * 2) + 0;
+  string = _injectCommas(string);
+
   return string + '.';
 };
+
+function _injectCommas(string) {
+  var i = 0;
+  var segments = string.split(' ');
+
+  while(i < segments.length) {
+    var position = Math.floor(Math.random() * 12) + 4;
+    i += position;
+
+    if (i > 0 && i < segments.length && (segments.length - i) > 3) {
+      segments[i] = segments[i] + ',';
+    }
+  }
+
+  return segments.join(' ');
+}
 
 function _capitalize (string) {
   return string.charAt(0).toUpperCase() + string.slice(1);
 };
+
+Number.prototype.formatMoney = function(c, d, t){
+    var n = this,
+    c = isNaN(c = Math.abs(c)) ? 2 : c,
+    d = d == undefined ? "." : d,
+    t = t == undefined ? "," : t,
+    s = n < 0 ? "-" : "",
+    i = parseInt(n = Math.abs(+n || 0).toFixed(c)) + "",
+    j = (j = i.length) > 3 ? j % 3 : 0;
+   return s + (j ? i.substr(0, j) + t : "") + i.substr(j).replace(/(\d{3})(?=\d)/g, "$1" + t) + (c ? d + Math.abs(n - i).toFixed(c).slice(2) : "");
+ };
