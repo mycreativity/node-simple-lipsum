@@ -2,6 +2,7 @@
 
 Simple and easy dummy data generation for [node](http://nodejs.org).
 
+## Quickstart
 ```js
 var lipsum = require('simple-lipsum')
 
@@ -68,3 +69,41 @@ $ npm install simple-lipsum
   * Numbers
   * Money
   * Specify the min and max amounts, or specify absolute
+
+## Documentation
+
+### Text
+
+```js
+var lipsum = require('simple-lipsum')
+
+// ### 5 to 10 words divided by space ###
+var words = lipsum.getWords(5, 10);
+// Example:
+// EROS elementum sit convallis Consectetur nunc at est convallis
+// tortor adipiscing eget Consectetur eget libero imperdiet mi convallis
+
+// ### Sentence with 8 to 21 words ###
+var sentence = lipsum.getSentence(8, 21);
+// Example:
+// Eget fermentum fusce diam ut ut sit libero imperdiet
+// pharetra EROS consectetur EROS, commodo ipsum nunc dui nullam
+// elementum mi proin libero, TorTor eget tortor EROS.
+
+// ### Sentence with exact 10 words ###
+var sentence = lipsum.getSentence(10);
+// Example:
+// Eget fermentum fusce diam ut ut sit libero imperdiet
+// pharetra EROS consectetur EROS, commodo ipsum nunc dui nullam
+// elementum mi proin libero, TorTor eget tortor EROS.
+
+// ### Paragraph with 2 to 5 sentences ###
+var paragraph = lipsum.getParagraph(2, 5);
+// Example:
+// Proin imperdiet erat nunc elit adipiscing ut ut lacinia  
+// sit blandit pellentesque mattis, mattis diam imperdiet metus TorTor  
+// pharetra convallis adipiscing blandit loremtortor. Blandit dolor  
+// consectetur proin erat mattis tortor, imperdiet amet Consectetur  
+// erat elit, elementum metus elit erat adipiscing dolor erat EROS  
+// estdui EROS mi convallis.
+```
