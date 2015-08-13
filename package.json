@@ -1,6 +1,6 @@
 {
   "name": "simple-lipsum",
-  "version": "0.1.2",
+  "version": "0.1.3",
   "description": "Simple and easy dummy data generation for node",
   "main": "simple-lipsum.js",
   "scripts": {
