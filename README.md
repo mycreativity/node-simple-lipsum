@@ -1,6 +1,6 @@
 [![npm package](https://nodei.co/npm/simple-lipsum.png?downloads=true&downloadRank=true&stars=true)](https://nodei.co/npm/simple-lipsum/)
 
-[![Build Status](https://travis-ci.org/mycreativity/node-simple-lipsum.svg?branch=master)](https://travis-ci.org/mycreativity/node-simple-lipsum)
+[![Build Status](https://travis-ci.org/mycreativity/node-simple-lipsum.svg?branch=master)](https://travis-ci.org/mycreativity/node-simple-lipsum) [![NPM version](http://img.shields.io/npm/v/simple-lipsum.svg)](https://www.npmjs.org/package/simple-lipsum) [![NPM license](http://img.shields.io/npm/l/simple-lipsum.svg)](https://www.npmjs.org/package/simple-lipsum)
 
 Simple and easy dummy data generation for [node](http://nodejs.org).
 
